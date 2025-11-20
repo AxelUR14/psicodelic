@@ -98,10 +98,26 @@
       border-radius:6px;
     }
 
-    @media(max-width:768px){
-      .imagenes{
-        grid-template-columns:1fr;
+    @media (max-width: 768px) {
+  
+        .grid{
+          grid-template-columns:repeat(3, 1fr);
+        }
+      
+        .card h3{
+          font-size:14px;
+        }
+      
+        .card p{
+          font-size:12px;
+        }
+      
+        .card{
+          padding:20px;
+        }
       }
+      
+      
       @media (max-width: 768px) {
 
         header{
