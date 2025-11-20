@@ -104,31 +104,84 @@
       text-align:center;
     }
 
-    /* GRID DE IMÁGENES */
-    .imagenes{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:20px;
+    /* GRID DE IMÁGENES COMO TARJETAS */
+    .imagenes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       width:100%;
-      max-width:1000px;
     }
 
-    .imagenes img{
-      width:100%;
-      aspect-ratio: 1 / 1;
-      object-fit:contain;
-      border:1px solid #eee;
-      border-radius:6px;
-      background:white;
-      cursor:pointer;
-      transition:transform 0.3s ease;
+    .card-product {
+      position: relative;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .imagenes img:hover{
-      transform:scale(1.05);
+    .card-product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    /* Imagen expandida */
+    .card-product img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #111;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card-body h5 {
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .price {
+      color: #ce0606;
+      font-weight: bold;
+    }
+
+    .card-footer {
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      background: #fafafa;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid #111;
+      text-decoration: none;
+      color: #111;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* VISOR IMÁGENES */
     #visor-img{
       position:fixed;
       inset:0;
@@ -145,9 +198,18 @@
       object-fit:contain;
     }
 
+    /* LOGO */
+    .logo {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      object-fit: contain;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px){
-
       header{
         height:35vh;
       }
@@ -185,35 +247,22 @@
         grid-template-columns:repeat(2, 1fr);
         gap:12px;
       }
+
+      .logo {
+        max-width: 280px;
+      }
     }
-    .logo{
-        width:100%;
-        max-height:120px;
-        object-fit:contain;
-      }
-      
-      /* Ajuste específico para celular */
-      @media (max-width:768px){
-        .logo{
-          max-height:80px;
-        }
-      }
-      
-            
-   
-    
   </style>
 </head>
 <body>
 
 <header>
   <h1><br></h1>
-   <img src="logo.jpeg" alt="Logo" class="logo">
+  <img src="logo.jpeg" alt="Logo" class="logo">
 </header>
 
 <section class="cards">
   <div class="grid">
-
     <div class="card" onclick="abrirSeccion('zapatillas')">
       <h3>Zapatillas</h3>
       <p>Importadas de la mas alta calidad</p>
@@ -228,41 +277,142 @@
       <h3>Ofertas</h3>
       <p>Encontra las mejores oportunidades</p>
     </div>
-
   </div>
 </section>
 
 <!-- MODAL -->
 <div id="contenedor-secciones">
-
   <span id="cerrar" onclick="cerrarModal()">✕</span>
 
+  <!-- ZAPATILLAS -->
   <div id="zapatillas" class="section-content">
     <h2>Zapatillas</h2>
     <div class="imagenes">
-      <img src="zapas/zapa1.jpg" onclick="expandir(this)">
-      <img src="zapas/zapa2.jpg" onclick="expandir(this)">
-      <img src="zapas/zapa3.jpg" onclick="expandir(this)">
+      <div class="card-product">
+        <div class="badge">Sale</div>
+        <img src="zapas/zapa1.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Adidas X</h5>
+          <span class="price">$25.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="zapas/zapa2.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Nike Air</h5>
+          <span class="price">$30.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="zapas/zapa3.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Puma Runner</h5>
+          <span class="price">$28.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- REMERAS -->
   <div id="remeras" class="section-content">
     <h2>Remeras Personalizadas</h2>
     <div class="imagenes">
-      <img src="remeras/basica1.jpeg" onclick="expandir(this)">
-      <img src="remeras/basica2.jpeg" onclick="expandir(this)">
-      <img src="remeras/basica3.jpeg" onclick="expandir(this)">
-      <img src="remeras/basica4.jpeg" onclick="expandir(this)">
-      <img src="remeras/basica5.jpeg" onclick="expandir(this)">
+      <div class="card-product">
+        <img src="remeras/basica1.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera Básica 1</h5>
+          <span class="price">$5.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="remeras/basica2.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera Básica 2</h5>
+          <span class="price">$5.500</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="remeras/basica3.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera Básica 3</h5>
+          <span class="price">$6.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="remeras/basica4.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera Básica 4</h5>
+          <span class="price">$6.200</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="remeras/basica5.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera Básica 5</h5>
+          <span class="price">$6.500</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- OFERTAS -->
   <div id="ofertas" class="section-content">
     <h2>Ofertas</h2>
     <div class="imagenes">
-      <img src="ofertas/of1.jpg" onclick="expandir(this)">
-      <img src="ofertas/of2.jpg" onclick="expandir(this)">
-      <img src="ofertas/of3.jpg" onclick="expandir(this)">
+      <div class="card-product">
+        <img src="ofertas/of1.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Producto Oferta 1</h5>
+          <span class="price">$15.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="ofertas/of2.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Producto Oferta 2</h5>
+          <span class="price">$18.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="ofertas/of3.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Producto Oferta 3</h5>
+          <span class="price">$20.000</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+        </div>
+      </div>
     </div>
   </div>
 
