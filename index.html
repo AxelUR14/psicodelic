@@ -4,157 +4,194 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psicodelic</title>
-    <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-  body{background:#fff;color:#111;}
-  
-  html{scroll-behavior:smooth;}
-  
-  header{
-    height:50vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
-  }
-  
-  header h1{
-    font-size:2.5rem;
-    letter-spacing:3px;
-    font-weight:300;
-  }
-  
-  section.cards{
-    padding:80px 10%;
-  }
-  
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:30px;
-  }
-  
-  .card{
-    border:1px solid #eee;
-    padding:40px;
-    text-align:center;
-    transition:all 0.4s ease;
-    background:#fafafa;
-    cursor:pointer;
-  }
-  
-  .card h3{
-    font-size:20px;
-    font-weight:400;
-    margin-bottom:10px;
-    letter-spacing:1px;
-  }
-  
-  .card p{font-size:14px;color:#ce0606;}
-  
-  .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 50px rgba(185, 5, 5, 0.904);
-  }
-  
-  /* CONTENEDOR DINÁMICO */
-  #contenedor-secciones{
-    padding:80px 10%;
-    display:none;
-  }
-  
-  .section-content{
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    gap:40px;
-  }
-  
-  .section-content.active{
-    display:flex;
-  }
-  
-  .section-content h2{
-    font-weight:300;
-    letter-spacing:2px;
-    font-size:2rem;
-  }
-  
-  /* GRID DE IMÁGENES */
-  .imagenes{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    width:100%;
-    max-width:1000px;
-  }
-  
-  .imagenes div{
-    width:100%;
-    aspect-ratio:1/1; /* cuadrado */
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    background:#fff;
-  }
-  
-  .imagenes img{
-    width:100%;
-    height:100%;
-    object-fit:contain; /* Muestra la imagen completa */
-    border-radius:6px;
-  }
-  
-  /* RESPONSIVE PARA CELULAR */
-  @media (max-width: 768px) {
-  
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+    body{background:#fff;color:#111;}
+    html{scroll-behavior:smooth;}
+
     header{
-      height:30vh;
-    }
-  
-    header h1{
-      font-size:1.8rem;
-    }
-  
-    section.cards{
-      padding:40px 5%;
-    }
-  
-    /* Los botones siguen en fila */
-    .grid{
-      grid-template-columns:repeat(3, 1fr);
-      gap:15px;
-    }
-  
-    .card{
+      height:50vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       padding:20px;
     }
-  
+
+    header h1{
+      font-size:2.5rem;
+      letter-spacing:3px;
+      font-weight:300;
+    }
+
+    section.cards{
+      padding:80px 10%;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:30px;
+    }
+
+    .card{
+      border:1px solid #eee;
+      padding:40px;
+      text-align:center;
+      transition:all 0.4s ease;
+      background:#fafafa;
+      cursor:pointer;
+    }
+
     .card h3{
-      font-size:14px;
+      font-size:20px;
+      font-weight:400;
+      margin-bottom:10px;
+      letter-spacing:1px;
     }
-  
-    .card p{
-      font-size:12px;
+
+    .card p{font-size:14px;color:#ce0606;}
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 25px 50px rgba(185, 5, 5, 0.904);
     }
-  
-    /* Imágenes en 2 columnas en celular */
+
+    /* MODAL */
+    #contenedor-secciones{
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100vh;
+      background:#fff;
+      display:none;
+      z-index:999;
+      overflow-y:auto;
+      padding:80px 10%;
+    }
+
+    body.modal-activo{
+      overflow:hidden;
+    }
+
+    #cerrar{
+      position:fixed;
+      top:20px;
+      right:20px;
+      font-size:30px;
+      cursor:pointer;
+      z-index:1000;
+      font-weight:300;
+    }
+
+    .section-content{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      gap:40px;
+    }
+
+    .section-content.active{
+      display:flex;
+    }
+
+    .section-content h2{
+      font-weight:300;
+      letter-spacing:2px;
+      font-size:2rem;
+      text-align:center;
+    }
+
+    /* GRID DE IMÁGENES */
     .imagenes{
-      grid-template-columns:repeat(2, 1fr);
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+      width:100%;
+      max-width:1000px;
     }
-  
-    .imagenes div{
-      aspect-ratio:1/1;
-    }
-  
+
     .imagenes img{
-      width:90%;
-      height:90%;
+      width:100%;
+      aspect-ratio: 1 / 1;
+      object-fit:contain;
+      border:1px solid #eee;
+      border-radius:6px;
+      background:white;
+      cursor:pointer;
+      transition:transform 0.3s ease;
     }
-  }
-  
+
+    .imagenes img:hover{
+      transform:scale(1.05);
+    }
+
+    /* Imagen expandida */
+    #visor-img{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:2000;
+    }
+
+    #visor-img img{
+      max-width:90%;
+      max-height:90%;
+      object-fit:contain;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px){
+
+      header{
+        height:35vh;
+      }
+
+      header h1{
+        font-size:1.7rem;
+      }
+
+      section.cards{
+        padding:40px 5%;
+      }
+
+      .grid{
+        grid-template-columns:repeat(3, 1fr);
+        gap:10px;
+      }
+
+      .card{
+        padding:15px;
+      }
+
+      .card h3{
+        font-size:14px;
+      }
+
+      .card p{
+        font-size:12px;
+      }
+
+      #contenedor-secciones{
+        padding:60px 5%;
+      }
+
+      .imagenes{
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+      }
+    }
+
+    @media (max-width:480px){
+      .imagenes{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -163,10 +200,9 @@
   <h1>PSICODELIC<br>COLLECTION</h1>
 </header>
 
-<!-- TARJETAS -->
 <section class="cards">
   <div class="grid">
-    
+
     <div class="card" onclick="abrirSeccion('zapatillas')">
       <h3>Zapatillas</h3>
       <p>Importadas de la mas alta calidad</p>
@@ -174,100 +210,86 @@
 
     <div class="card" onclick="abrirSeccion('remeras')">
       <h3>Remeras Personalizadas</h3>
-      <p>Con tu personaje o famoso favorito</p>
+      <p>Con tu personaje favorito</p>
     </div>
 
     <div class="card" onclick="abrirSeccion('ofertas')">
       <h3>Ofertas</h3>
-      <p>Encontra las mejores ofertas</p>
+      <p>Encontra las mejores oportunidades</p>
     </div>
 
   </div>
 </section>
 
-<!-- CONTENEDOR DINÁMICO -->
+<!-- MODAL -->
 <div id="contenedor-secciones">
 
-  <div class="section-content" id="zapatillas">
+  <span id="cerrar" onclick="cerrarModal()">✕</span>
+
+  <div id="zapatillas" class="section-content">
     <h2>Zapatillas</h2>
     <div class="imagenes">
-      <img src="zapatillas/zapa1.jpg">
-      <img src="zapatillas/zapa2.jpg">
-      <img src="zapatillas/zapa3.jpg">
+      <img src="zapas/zapa1.jpg" onclick="expandir(this)">
+      <img src="zapas/zapa2.jpg" onclick="expandir(this)">
+      <img src="zapas/zapa3.jpg" onclick="expandir(this)">
     </div>
-    <p>La mas alta calidad de zapatillas importadas.</p>
   </div>
 
-  <div class="section-content" id="remeras">
+  <div id="remeras" class="section-content">
     <h2>Remeras Personalizadas</h2>
     <div class="imagenes">
-      <img src="remeras/basica1.jpeg" onclick="expandirImagen(this)">
-      <img src="remeras/basica2.jpeg" onclick="expandirImagen(this)">
-      <img src="remeras/basica3.jpeg" onclick="expandirImagen(this)">
-      <img src="remeras/basica4.jpeg" onclick="expandirImagen(this)">
-      <img src="remeras/basica5.jpeg">
+      <img src="remeras/basica1.jpeg" onclick="expandir(this)">
+      <img src="remeras/basica2.jpeg" onclick="expandir(this)">
+      <img src="remeras/basica3.jpeg" onclick="expandir(this)">
+      <img src="remeras/basica4.jpeg" onclick="expandir(this)">
+      <img src="remeras/basica5.jpeg" onclick="expandir(this)">
     </div>
-    <p></p>
   </div>
 
-  <div class="section-content" id="ofertas">
+  <div id="ofertas" class="section-content">
     <h2>Ofertas</h2>
     <div class="imagenes">
-      <img src="ofertas/oferta1.jpg">
-      <img src="ofertas/oferta2.jpg">
-      <img src="ofertas/oferta3.jpg">
+      <img src="ofertas/of1.jpg" onclick="expandir(this)">
+      <img src="ofertas/of2.jpg" onclick="expandir(this)">
+      <img src="ofertas/of3.jpg" onclick="expandir(this)">
     </div>
-    <p>Encontra las mejores ofertas.</p>
   </div>
 
 </div>
 
+<!-- VISOR IMÁGENES -->
+<div id="visor-img" onclick="cerrarImagen()">
+  <img id="img-grande">
+</div>
+
 <script>
-    
-        function expandirImagen(img){
-          const visor = document.getElementById("visor");
-          const imagen = document.getElementById("imgExpandida");
-        
-          imagen.src = img.src;
-          visor.style.display = "flex";
-        }
-        
-        function cerrarImagen(){
-          document.getElementById("visor").style.display = "none";
-        }
-        </script>
-        <script>    
-function abrirSeccion(id) {
-  const contenedor = document.getElementById("contenedor-secciones");
-  const secciones = document.querySelectorAll(".section-content");
+function abrirSeccion(id){
+  document.getElementById("contenedor-secciones").style.display = "block";
+  document.body.classList.add("modal-activo");
 
-  contenedor.style.display = "block";
-
-  secciones.forEach(sec => {
+  document.querySelectorAll(".section-content").forEach(sec=>{
     sec.classList.remove("active");
   });
 
   document.getElementById(id).classList.add("active");
+}
 
-  contenedor.scrollIntoView({ behavior: "smooth" });
+function cerrarModal(){
+  document.getElementById("contenedor-secciones").style.display = "none";
+  document.body.classList.remove("modal-activo");
+}
+
+function expandir(img){
+  const visor = document.getElementById("visor-img");
+  const grande = document.getElementById("img-grande");
+  grande.src = img.src;
+  visor.style.display = "flex";
+}
+
+function cerrarImagen(){
+  document.getElementById("visor-img").style.display = "none";
 }
 </script>
-<!-- VISOR DE IMAGEN GRANDE -->
-<div id="visor" onclick="cerrarImagen()"
-style="
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;">
-  
-  <img id="imgExpandida" 
-  style="max-width:90%;max-height:90%;border-radius:10px;">
-</div>
 
 </body>
 </html>
