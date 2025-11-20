@@ -4,149 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psicodelic</title>
-
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-    body{background:#fff;color:#111;}
-
-    html{scroll-behavior:smooth;}
-
+    <style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+  body{background:#fff;color:#111;}
+  
+  html{scroll-behavior:smooth;}
+  
+  header{
+    height:50vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+  }
+  
+  header h1{
+    font-size:2.5rem;
+    letter-spacing:3px;
+    font-weight:300;
+  }
+  
+  section.cards{
+    padding:80px 10%;
+  }
+  
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+  
+  .card{
+    border:1px solid #eee;
+    padding:40px;
+    text-align:center;
+    transition:all 0.4s ease;
+    background:#fafafa;
+    cursor:pointer;
+  }
+  
+  .card h3{
+    font-size:20px;
+    font-weight:400;
+    margin-bottom:10px;
+    letter-spacing:1px;
+  }
+  
+  .card p{font-size:14px;color:#ce0606;}
+  
+  .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 50px rgba(185, 5, 5, 0.904);
+  }
+  
+  /* CONTENEDOR DINÁMICO */
+  #contenedor-secciones{
+    padding:80px 10%;
+    display:none;
+  }
+  
+  .section-content{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    gap:40px;
+  }
+  
+  .section-content.active{
+    display:flex;
+  }
+  
+  .section-content h2{
+    font-weight:300;
+    letter-spacing:2px;
+    font-size:2rem;
+  }
+  
+  /* GRID DE IMÁGENES */
+  .imagenes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    width:100%;
+    max-width:1000px;
+  }
+  
+  .imagenes div{
+    width:100%;
+    aspect-ratio:1/1; /* cuadrado */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#fff;
+  }
+  
+  .imagenes img{
+    width:100%;
+    height:100%;
+    object-fit:contain; /* Muestra la imagen completa */
+    border-radius:6px;
+  }
+  
+  /* RESPONSIVE PARA CELULAR */
+  @media (max-width: 768px) {
+  
     header{
-      height:50vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+      height:30vh;
+    }
+  
+    header h1{
+      font-size:1.8rem;
+    }
+  
+    section.cards{
+      padding:40px 5%;
+    }
+  
+    /* Los botones siguen en fila */
+    .grid{
+      grid-template-columns:repeat(3, 1fr);
+      gap:15px;
+    }
+  
+    .card{
       padding:20px;
     }
-
-    header h1{
-      font-size:2.5rem;
-      letter-spacing:3px;
-      font-weight:300;
-    }
-
-    section.cards{
-      padding:80px 10%;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      border:1px solid #eee;
-      padding:40px;
-      text-align:center;
-      transition:all 0.4s ease;
-      background:#fafafa;
-      cursor:pointer;
-    }
-
-    .card h3{
-      font-size:20px;
-      font-weight:400;
-      margin-bottom:10px;
-      letter-spacing:1px;
-    }
-
-    .card p{font-size:14px;color:#ce0606;}
-
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 25px 50px rgba(185, 5, 5, 0.904);
-    }
-
-    /* CONTENEDOR DINÁMICO */
-    #contenedor-secciones{
-      padding:80px 10%;
-      display:none;
-    }
-
-    .section-content{
-      display:none;
-      flex-direction:column;
-      align-items:center;
-      gap:40px;
-    }
-
-    .section-content.active{
-      display:flex;
-    }
-
-    .section-content h2{
-      font-weight:300;
-      letter-spacing:2px;
-      font-size:2rem;
-    }
-
-    /* GRID DE IMÁGENES */
-    .imagenes{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      width:100%;
-      max-width:1000px;
-    }
-
-    .imagenes img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:6px;
-    }
-
-    @media (max-width: 768px) {
   
-        .grid{
-          grid-template-columns:repeat(3, 1fr);
-        }
-      
-        .card h3{
-          font-size:14px;
-        }
-      
-        .card p{
-          font-size:12px;
-        }
-      
-        .card{
-          padding:20px;
-        }
-      }
-      
-      
-      @media (max-width: 768px) {
-
-        header{
-          height:30vh;
-        }
-      
-        header h1{
-          font-size:1.8rem;
-        }
-      
-        section.cards{
-          padding:40px 5%;
-        }
-      
-        .grid{
-          grid-template-columns:1fr;
-        }
-      
-        .section-content{
-          padding:40px 5%;
-        }
-      
-        .section-content img{
-          max-width:100%;
-        }
-      
-      }
-      
+    .card h3{
+      font-size:14px;
     }
+  
+    .card p{
+      font-size:12px;
+    }
+  
+    /* Imágenes en 2 columnas en celular */
+    .imagenes{
+      grid-template-columns:repeat(2, 1fr);
+    }
+  
+    .imagenes div{
+      aspect-ratio:1/1;
+    }
+  
+    .imagenes img{
+      width:90%;
+      height:90%;
+    }
+  }
+  
   </style>
 </head>
 <body>
