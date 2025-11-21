@@ -252,30 +252,49 @@
         max-width: 280px;
       }
     }
+    #video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Para que cubra todo el header sin deformar */
+      z-index: -1;       /* Para que el contenido quede encima del video */
+    }
+    
   </style>
 </head>
 <body>
 
 <header>
+  <header>
+    <video autoplay muted loop id="video-bg">
+      <source src="fondo.mp4" type="video/mp4">
+      
+    </video>
+    <h1><br></h1>
+    <!--<img src="logo.jpeg" alt="Logo" class="logo">-->
+  </header>
+  
   <h1><br></h1>
-  <img src="logo.jpeg" alt="Logo" class="logo">
+  <!--<img src="logo.jpeg" alt="Logo" class="logo">-->
 </header>
 
 <section class="cards">
   <div class="grid">
     <div class="card" onclick="abrirSeccion('zapatillas')">
       <h3>Zapatillas</h3>
-      <p>Importadas de la mas alta calidad</p>
+      <p>Importadas G5</p>
     </div>
 
     <div class="card" onclick="abrirSeccion('remeras')">
       <h3>Remeras Personalizadas</h3>
-      <p>Con tu personaje favorito</p>
+      <p>Estampas DTF o diseño IA</p>
     </div>
 
     <div class="card" onclick="abrirSeccion('ofertas')">
       <h3>Ofertas</h3>
-      <p>Encontra las mejores oportunidades</p>
+      <p>De combos zapas+remeras</p>
     </div>
   </div>
 </section>
