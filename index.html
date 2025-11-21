@@ -209,19 +209,21 @@ body.modal-activo{
 @media(max-width:768px){
 
   /* productos 2 por fila */
-  .imagenes{
-    grid-template-columns:repeat(2,1fr);
-  }
+  
 
   /* ✅ botones media pantalla = 2 columnas */
   .grid{
+    display:grid;
     grid-template-columns:repeat(2,1fr);
+    gap:15px;
   }
 
   .card{
     width:100%;           /* cada botón ocupa su mitad */
   }
-
+  .imagenes{
+    grid-template-columns:repeat(2,1fr);
+  }
   /* video centrado en móvil */
   #video-bg{
     width:95%;
