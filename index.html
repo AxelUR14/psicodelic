@@ -232,21 +232,30 @@
       padding:40px 5%;
     }
 
-    .grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-  
-    /* El 3er botón debajo del primero */
-    .grid .card:nth-child(3){
-      grid-column: 1 / 2;
-    }
-  
-    .card{
-      height: 200px;  /* tamaño tipo Louis Vuitton en celular */
-    }
+    /* BOTONES ESTILO LOUIS VUITTON EN CELULAR */
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:16px;
   }
+
+  /* El 3er botón va debajo del primero */
+  .grid .card:nth-child(3){
+    grid-column: 1 / 2;
+  }
+
+  /* Tamaño tipo Louis Vuitton */
+  .card{
+    aspect-ratio: 1/1;
+  }
+
+  .img-boton{
+    height: 120px;
+  }
+
+}
+
   
     
 
