@@ -6,301 +6,360 @@
   <title>Psicodelic</title>
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-    body{background:#fff;color:#111;}
-    html{scroll-behavior:smooth;}
 
-    header{
-      height:50vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
+  /* RESET GENERAL */
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    background:#fff;
+    color:#111;
+  }
+
+  /* ESPACIO SUPERIOR */
+  .espacio-blanco{
+    height:100px;
+    width:100%;
+  }
+
+  /* CONTENEDOR DE VIDEO TIPO LOUIS VUITTON */
+  .video-container{
+    width:100%;
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#fff;
+  }
+
+  .video-container video{
+    width:90%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+  }
+
+  /* SECCIÓN BOTONES */
+  section.cards{
+    padding:70px 10%;
+    background:#fff;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+
+  .card{
+    border:1px solid #eee;
+    padding:40px 20px;
+    text-align:center;
+    background:#fafafa;
+    cursor:pointer;
+    transition:all 0.4s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+  }
+
+  .card h3{
+    font-size:20px;
+    font-weight:400;
+    margin-bottom:8px;
+  }
+
+  .card p{
+    font-size:14px;
+    color:#ce0606;
+  }
+
+  /* MODAL SECCIONES */
+  #contenedor-secciones{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:#fff;
+    display:none;
+    z-index:999;
+    overflow-y:auto;
+    padding:80px 10%;
+  }
+
+  body.modal-activo{
+    overflow:hidden;
+  }
+
+  #cerrar{
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-size:30px;
+    cursor:pointer;
+    z-index:1000;
+  }
+
+  .section-content{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    gap:40px;
+  }
+
+  .section-content.active{
+    display:flex;
+  }
+
+  .section-content h2{
+    font-size:2rem;
+    letter-spacing:2px;
+  }
+
+  /* GALERÍAS */
+  .imagenes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    width:100%;
+  }
+
+  /* TARJETAS PRODUCTO */
+  .card-product{
+    border:1px solid #eee;
+    border-radius:8px;
+    overflow:hidden;
+    background:#fff;
+    transition:0.3s;
+  }
+
+  .card-product:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .card-product img{
+    width:100%;
+    object-fit:contain;
+  }
+
+  .badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#111;
+    color:#fff;
+    padding:4px 8px;
+    font-size:12px;
+  }
+
+  .card-body{
+    padding:12px;
+    text-align:center;
+  }
+
+  .card-body h5{
+    font-size:16px;
+    margin-bottom:6px;
+  }
+
+  .price{
+    color:#ce0606;
+    font-weight:bold;
+  }
+
+  .card-footer{
+    padding:10px;
+    text-align:center;
+    border-top:1px solid #eee;
+  }
+
+  .btn{
+    border:1px solid #111;
+    padding:6px 14px;
+    text-decoration:none;
+    color:#111;
+    border-radius:4px;
+    transition:0.3s;
+  }
+
+  .btn:hover{
+    background:#111;
+    color:#fff;
+  }
+
+  /* VISOR */
+  #visor-img{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+  }
+
+  #visor-img img{
+    max-width:90%;
+    max-height:90%;
+    object-fit:contain;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:768px){
+
+    .video-container{
+      height:40vh;
     }
 
-    header h1{
-      font-size:2.5rem;
-      letter-spacing:3px;
-      font-weight:300;
+    .video-container video{
+      width:95%;
     }
 
     section.cards{
-      padding:80px 10%;
+      padding:40px 5%;
     }
 
     .grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+  
+    /* El 3er botón debajo del primero */
+    .grid .card:nth-child(3){
+      grid-column: 1 / 2;
+    }
+  
+    .card{
+      height: 200px;  /* tamaño tipo Louis Vuitton en celular */
+    }
+  }
+  
+    
+
+    .imagenes{
+      grid-template-columns:repeat(2,1fr);
     }
 
     .card{
-      border:1px solid #eee;
-      padding:40px;
-      text-align:center;
-      transition:all 0.4s ease;
-      background:#fafafa;
-      cursor:pointer;
+      padding:15px;
     }
 
     .card h3{
-      font-size:20px;
-      font-weight:400;
-      margin-bottom:10px;
-      letter-spacing:1px;
+      font-size:14px;
     }
 
-    .card p{font-size:14px;color:#ce0606;}
-
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 25px 50px rgba(185, 5, 5, 0.904);
+    .card p{
+      font-size:12px;
     }
+  
+  .img-boton{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 6px;
+  }
+  /* Espacio blanco de arriba */
+.espacio-blanco {
+  height: 120px; /* Altura del espacio blanco */
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    /* MODAL */
-    #contenedor-secciones{
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100vh;
-      background:#fff;
-      display:none;
-      z-index:999;
-      overflow-y:auto;
-      padding:80px 10%;
-    }
+/* Título centrado */
+.espacio-blanco h1 {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  font-weight: 300;
+  margin: 0;
+}
 
-    body.modal-activo{
-      overflow:hidden;
-    }
+/* Contenedor del video */
+.contenedor-video {
+  width: 100%;
+  height: 50vh;  /* Altura del video */
+  position: relative;
+  overflow: hidden;
+}
 
-    #cerrar{
-      position:fixed;
-      top:20px;
-      right:20px;
-      font-size:30px;
-      cursor:pointer;
-      z-index:1000;
-      font-weight:300;
-    }
+/* Video */
+#video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
 
-    .section-content{
-      display:none;
-      flex-direction:column;
-      align-items:center;
-      gap:40px;
-    }
+.card{
+  height: 300px; /* tamaño normal en PC */
+}
 
-    .section-content.active{
-      display:flex;
-    }
-
-    .section-content h2{
-      font-weight:300;
-      letter-spacing:2px;
-      font-size:2rem;
-      text-align:center;
-    }
-
-    /* GRID DE IMÁGENES COMO TARJETAS */
-    .imagenes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width:100%;
-    }
-
-    .card-product {
-      position: relative;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card-product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .card-product img {
-      width: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #111;
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 0.8rem;
-      border-radius: 4px;
-    }
-
-    .card-body {
-      padding: 10px;
-      text-align: center;
-    }
-
-    .card-body h5 {
-      margin-bottom: 5px;
-      font-size: 1rem;
-    }
-
-    .price {
-      color: #ce0606;
-      font-weight: bold;
-    }
-
-    .card-footer {
-      padding: 10px;
-      text-align: center;
-      border-top: 1px solid #eee;
-      background: #fafafa;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid #111;
-      text-decoration: none;
-      color: #111;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #111;
-      color: #fff;
-    }
-
-    /* VISOR IMÁGENES */
-    #visor-img{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.8);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:2000;
-    }
-
-    #visor-img img{
-      max-width:90%;
-      max-height:90%;
-      object-fit:contain;
-    }
-
-    /* LOGO */
-    .logo {
-      width: 100%;
-      max-width: 450px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-      object-fit: contain;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px){
-      header{
-        height:35vh;
-      }
-
-      header h1{
-        font-size:1.7rem;
-      }
-
-      section.cards{
-        padding:40px 5%;
-      }
-
-      .grid{
-        grid-template-columns:repeat(3, 1fr);
-        gap:10px;
-      }
-
-      .card{
-        padding:15px;
-      }
-
-      .card h3{
-        font-size:14px;
-      }
-
-      .card p{
-        font-size:12px;
-      }
-
-      #contenedor-secciones{
-        padding:60px 5%;
-      }
-
-      .imagenes{
-        grid-template-columns:repeat(2, 1fr);
-        gap:12px;
-      }
-
-      .logo {
-        max-width: 280px;
-      }
-    }
-    #video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Para que cubra todo el header sin deformar */
-      z-index: -1;       /* Para que el contenido quede encima del video */
-    }
-    
   </style>
 </head>
+<div class="espacio-blanco">
+  <h1>PSICODELIC</h1>
+</div>
 <body>
 
-<header>
-  <header>
-    <video autoplay muted playsinline loop id="video-bg">
-      <source src="fondo.mp4" type="video/mp4">
-      
-    </video>
-    <h1><br></h1>
-    <!--<img src="logo.jpeg" alt="Logo" class="logo">-->
-  </header>
-  
-  <h1><br></h1>
-  <!--<img src="logo.jpeg" alt="Logo" class="logo">-->
-</header>
+<!-- ESPACIO BLANCO -->
+<div class="espacio-blanco"></div>
 
+<!-- VIDEO tipo Louis Vuitton -->
+<div class="video-container">
+  <video autoplay muted playsinline loop>
+    <source src="fondo.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- BOTONES debajo del video -->
 <section class="cards">
   <div class="grid">
+
     <div class="card" onclick="abrirSeccion('zapatillas')">
+      <img src="zapatillas/zapatillas1.jpeg" class="img-boton">
       <h3>Zapatillas</h3>
       <p>Importadas G5</p>
     </div>
 
     <div class="card" onclick="abrirSeccion('remeras')">
+      <img src="remeras/basica1.jpeg" class="img-boton">
       <h3>Remeras Personalizadas</h3>
-      <p>Estampas DTF o diseño IA</p>
+      <p>Estampas DTF o IA</p>
     </div>
 
     <div class="card" onclick="abrirSeccion('ofertas')">
+      <img src="zapatillas/zapatillas1.jpeg" class="img-boton">
       <h3>Ofertas</h3>
-      <p>De combos zapas+remeras</p>
+      <p>Combos zapas + remeras</p>
     </div>
+
   </div>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL SECCIONES -->
 <div id="contenedor-secciones">
+
   <span id="cerrar" onclick="cerrarModal()">✕</span>
 
   <!-- ZAPATILLAS -->
@@ -308,16 +367,16 @@
     <h2>Zapatillas</h2>
     <div class="imagenes">
       <div class="card-product">
-        <div class="badge">Sale</div>
         <img src="zapas/zapa1.jpg" onclick="expandir(this)">
         <div class="card-body">
           <h5>Adidas X</h5>
           <span class="price">$25.000</span>
         </div>
         <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+          <a href="https://wa.me/+543513241205" class="btn">Comprar</a>
         </div>
       </div>
+
       <div class="card-product">
         <img src="zapas/zapa2.jpg" onclick="expandir(this)">
         <div class="card-body">
@@ -325,9 +384,10 @@
           <span class="price">$30.000</span>
         </div>
         <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+          <a href="https://wa.me/+543513241205" class="btn">Comprar</a>
         </div>
       </div>
+
       <div class="card-product">
         <img src="zapas/zapa3.jpg" onclick="expandir(this)">
         <div class="card-body">
@@ -335,7 +395,7 @@
           <span class="price">$28.000</span>
         </div>
         <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
+          <a href="https://wa.me/+543513241205" class="btn">Comprar</a>
         </div>
       </div>
     </div>
@@ -344,55 +404,45 @@
   <!-- REMERAS -->
   <div id="remeras" class="section-content">
     <h2>Remeras Personalizadas</h2>
+
     <div class="imagenes">
       <div class="card-product">
         <img src="remeras/basica1.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Remera Básica 1</h5>
+          <h5>Basica 1</h5>
           <span class="price">$5.000</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="remeras/basica2.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Remera Básica 2</h5>
+          <h5>Basica 2</h5>
           <span class="price">$5.500</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="remeras/basica3.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Remera Básica 3</h5>
+          <h5>Basica 3</h5>
           <span class="price">$6.000</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="remeras/basica4.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Remera Básica 4</h5>
+          <h5>Basica 4</h5>
           <span class="price">$6.200</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="remeras/basica5.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Remera Básica 5</h5>
+          <h5>Basica 5</h5>
           <span class="price">$6.500</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
         </div>
       </div>
     </div>
@@ -401,35 +451,29 @@
   <!-- OFERTAS -->
   <div id="ofertas" class="section-content">
     <h2>Ofertas</h2>
+
     <div class="imagenes">
       <div class="card-product">
         <img src="ofertas/of1.jpg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Producto Oferta 1</h5>
+          <h5>Oferta 1</h5>
           <span class="price">$15.000</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="ofertas/of2.jpg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Producto Oferta 2</h5>
+          <h5>Oferta 2</h5>
           <span class="price">$18.000</span>
         </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
-        </div>
       </div>
+
       <div class="card-product">
         <img src="ofertas/of3.jpg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Producto Oferta 3</h5>
+          <h5>Oferta 3</h5>
           <span class="price">$20.000</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://wa.me/+543513241205?text=" class="btn">Comprar</a>
         </div>
       </div>
     </div>
@@ -437,12 +481,13 @@
 
 </div>
 
-<!-- VISOR IMÁGENES -->
+<!-- VISOR IMAGEN -->
 <div id="visor-img" onclick="cerrarImagen()">
   <img id="img-grande">
 </div>
 
 <script>
+
 function abrirSeccion(id){
   document.getElementById("contenedor-secciones").style.display = "block";
   document.body.classList.add("modal-activo");
@@ -460,15 +505,14 @@ function cerrarModal(){
 }
 
 function expandir(img){
-  const visor = document.getElementById("visor-img");
-  const grande = document.getElementById("img-grande");
-  grande.src = img.src;
-  visor.style.display = "flex";
+  document.getElementById("visor-img").style.display = "flex";
+  document.getElementById("img-grande").src = img.src;
 }
 
 function cerrarImagen(){
   document.getElementById("visor-img").style.display = "none";
 }
+
 </script>
 
 </body>
