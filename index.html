@@ -329,9 +329,38 @@
 .card{
   height: 300px; /* tamaño normal en PC */
 }
+.video-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px 0;
+}
+
+.video-wrapper video {
+  width: 90%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+.video-wrapper {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+@media (max-width:768px){
+  .video-wrapper video{
+    width: 95%;
+  }
+}
 
   </style>
 </head>
+
+
 <div class="espacio-blanco">
   <h1>PSICODELIC</h1>
 </div>
@@ -341,7 +370,7 @@
 <div class="espacio-blanco"></div>
 
 <!-- VIDEO tipo Louis Vuitton -->
-<div class="video-container">
+<div class="video-wrapper">
   <video autoplay muted playsinline loop>
     <source src="fondo.mp4" type="video/mp4">
   </video>
