@@ -27,15 +27,23 @@ header{
   align-items:center;
   justify-content:center;
   width:100%;
-  text-align:center;   /* ✅ centrado titulo */
+  text-align:center;
 }
 
 .titulo-espacio h1{
   font-size:2.5rem;
   letter-spacing:3px;
   font-weight:300;
-  text-align:center;   /* ✅ asegurado */
+  text-align:center;
   width:100%;
+  font-family: 'Playball', cursive;
+  font-size: 3rem;
+  color: white;
+  -webkit-text-stroke: 2px red;
+  text-shadow:
+    0 0 5px red,
+    0 0 10px red,
+    0 0 20px red;
 }
 
 /* Video en el medio */
@@ -44,18 +52,17 @@ header{
   width:100%;
   height:30vh;
   overflow:hidden;
-
-  display:flex;             /* ✅ centrado video */
+  display:flex;
   justify-content:center;
   align-items:center;
 }
 
 #video-bg{
-  width:95%;          /* ✅ más centrado y con margen */
+  width:95%;
   height:100%;
   object-fit:cover;
-  margin:0 auto;       /* ✅ */
-  display:block;       /* ✅ */
+  margin:0 auto;
+  display:block;
 }
 
 /* ===== BOTONES ===== */
@@ -184,11 +191,88 @@ body.modal-activo{
   text-decoration:none;
   color:#111;
   border-radius:4px;
+  transition:0.2s;
 }
 
 .btn:hover{
   background:#111;
   color:#fff;
+}
+
+/* ===== PRODUCTOS DESTACADOS CON BOTÓN ILUMINADO ===== */
+.card-product-special {
+  border:1px solid #eee;
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+  position:relative;
+  transition:0.3s;
+}
+
+.card-product-special:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(226,5,5,0.5);
+}
+
+.card-product-special .badge {
+  position:absolute;
+  top:0.5rem;
+  right:0.5rem;
+  padding:5px 10px;
+  background:#111;
+  color:#fff;
+  font-size:0.8rem;
+  border-radius:4px;
+  z-index:2;
+}
+
+.card-product-special img {
+  width:100%;
+  height:200px;
+  object-fit:contain;
+  cursor:pointer;
+}
+
+.card-product-special .card-body {
+  padding:10px;
+  text-align:center;
+}
+
+.card-product-special .card-body h5 {
+  font-size:1rem;
+  font-weight:600;
+}
+
+.card-product-special .price {
+  color:#ce0606;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.card-product-special .card-footer {
+  padding:10px;
+  text-align:center;
+}
+
+.card-product-special .btn-special {
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid #111;
+  border-radius:6px;
+  text-decoration:none;
+  color:#111;
+  transition:0.2s;
+}
+
+.card-product-special .btn-special:hover {
+  background:#111;
+  color:#fff;
+  box-shadow:0 0 10px 3px #00ffff;
+}
+
+.card-product-special .btn-special:active {
+  box-shadow:0 0 15px 5px #00ffff;
+  transform:scale(0.95);
 }
 
 /* ===== VISOR ===== */
@@ -209,15 +293,11 @@ body.modal-activo{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-
-  /* productos 2 por fila */
-  
   section.cards{
     padding:20px 2%;
     width:100%;
   }
 
-  /* ✅ botones media pantalla = 2 columnas */
   .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -225,12 +305,13 @@ body.modal-activo{
   }
 
   .card{
-    width:100%;           /* cada botón ocupa su mitad */
+    width:100%;
   }
+
   .imagenes{
     grid-template-columns:repeat(2,1fr);
   }
-  /* video centrado en móvil */
+
   #video-bg{
     width:95%;
   }
@@ -239,6 +320,7 @@ body.modal-activo{
     text-align:center;
   }
 }
+
 .img-boton{
   width:100%;
   height:150px;
@@ -246,25 +328,12 @@ body.modal-activo{
   margin-bottom:15px;
   border-radius:4px;
 }
-.titulo-espacio h1{
-  font-family: 'Playball', cursive;
-  font-size: 3rem;
-  color: white;
-  -webkit-text-stroke: 2px red;
-
-  text-shadow:
-    0 0 5px red,
-    0 0 10px red,
-    0 0 20px red;
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-
   <!-- ESPACIO EN BLANCO -->
   <div class="titulo-espacio">
     <h1>PSICODELIC</h1>
@@ -276,7 +345,6 @@ body.modal-activo{
       <source src="fondo.mp4" type="video/mp4">
     </video>
   </div>
-
 </header>
 
 <!-- BOTONES -->
@@ -306,80 +374,139 @@ body.modal-activo{
 
 <!-- MODAL -->
 <div id="contenedor-secciones">
+  <span id="cerrar" onclick="cerrarModal()">✕</span>
 
-<span id="cerrar" onclick="cerrarModal()">✕</span>
+  <!-- ZAPATILLAS -->
+  <div id="zapatillas" class="section-content active">
+    <h2>Zapatillas</h2>
+    <div class="imagenes">
 
-<!-- ZAPATILLAS -->
-<div id="zapatillas" class="section-content active">
-<h2>Zapatillas</h2>
-<div class="imagenes">
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="zapas/zapa1.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Adidas X</h5>
+          <div class="price">$25.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="zapas/zapa1.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Adidas X</h5><div class="price">$25.000</div></div>
-  <div class="card-footer"><a class="btn" href="#">Comprar</a></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="zapas/zapa2.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Nike Air</h5>
+          <div class="price">$30.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="zapas/zapa2.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Nike Air</h5><div class="price">$30.000</div></div>
-  <div class="card-footer"><a class="btn" href="#">Comprar</a></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="zapas/zapa3.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Puma Runner</h5>
+          <div class="price">$28.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="zapas/zapa3.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Puma Runner</h5><div class="price">$28.000</div></div>
-  <div class="card-footer"><a class="btn" href="#">Comprar</a></div>
-</div>
+    </div>
+  </div>
 
-</div>
-</div>
+  <!-- REMERAS -->
+  <div id="remeras" class="section-content">
+    <h2>Remeras Personalizadas</h2>
+    <div class="imagenes">
 
-<!-- REMERAS -->
-<div id="remeras" class="section-content">
-<h2>Remeras Personalizadas</h2>
-<div class="imagenes">
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="remeras/basica1.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera 1</h5>
+          <div class="price">$5.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="remeras/basica1.jpeg" onclick="expandir(this)">
-  <div class="card-body"><h5>Remera 1</h5><div class="price">$5.000</div></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="remeras/basica2.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera 2</h5>
+          <div class="price">$5.500</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="remeras/basica2.jpeg" onclick="expandir(this)">
-  <div class="card-body"><h5>Remera 2</h5><div class="price">$5.500</div></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="remeras/basica3.jpeg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Remera 3</h5>
+          <div class="price">$6.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="remeras/basica3.jpeg" onclick="expandir(this)">
-  <div class="card-body"><h5>Remera 3</h5><div class="price">$6.000</div></div>
-</div>
+    </div>
+  </div>
 
-</div>
-</div>
+  <!-- OFERTAS -->
+  <div id="ofertas" class="section-content">
+    <h2>Ofertas</h2>
+    <div class="imagenes">
 
-<!-- OFERTAS -->
-<div id="ofertas" class="section-content">
-<h2>Ofertas</h2>
-<div class="imagenes">
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="ofertas/of1.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Oferta 1</h5>
+          <div class="price">$15.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="ofertas/of1.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Oferta 1</h5><div class="price">$15.000</div></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="ofertas/of2.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Oferta 2</h5>
+          <div class="price">$18.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="ofertas/of2.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Oferta 2</h5><div class="price">$18.000</div></div>
-</div>
+      <div class="card-product-special">
+        <div class="badge">Sale</div>
+        <img src="ofertas/of3.jpg" onclick="expandir(this)">
+        <div class="card-body">
+          <h5>Oferta 3</h5>
+          <div class="price">$20.000</div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+      </div>
 
-<div class="card-product">
-  <img src="ofertas/of3.jpg" onclick="expandir(this)">
-  <div class="card-body"><h5>Oferta 3</h5><div class="price">$20.000</div></div>
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 
 </div>
 
