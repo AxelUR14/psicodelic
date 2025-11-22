@@ -347,6 +347,17 @@ body.modal-activo{
   margin-bottom:15px;
   border-radius:4px;
 }
+/* Hace transparente la zona de las pelotitas */
+.color-buttons{
+  background: gray !important;
+  padding: 8px 0;
+}
+
+/* Si el fondo gris viene del producto completo */
+.card-product{
+  background: gray !important;
+}
+
 </style>
 </head>
 
@@ -401,7 +412,7 @@ body.modal-activo{
         <img src="adidasdepor/adidasnegra.jpeg" onclick="expandir(this)" id="imagen-zapa1">
         <div class="card-body">
           <h5>Adidas X</h5>
-          <div class="price">$25.000</div>
+          <div class="price">$65.000</div>
         </div>
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
@@ -420,7 +431,7 @@ body.modal-activo{
         <img src="vans/vans.jpeg" onclick="expandir(this)" id="imagen-zapa2">
         <div class="card-body">
           <h5>Vans</h5>
-          <div class="price">$30.000</div>
+          <div class="price">$65.000</div>
         </div>
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
@@ -429,7 +440,7 @@ body.modal-activo{
           <button style="background:pink;" onclick="cambiarColor('imagen-zapa2','vans/vansrosas.jpeg')"></button>
           <button style="background:black;" onclick="cambiarColor('imagen-zapa2','vans/vansnegras.jpeg')"></button>
           <button style="background:rgb(75, 12, 12);" onclick="cambiarColor('imagen-zapa2','vans/vansmarron.jpeg')"></button>
-          <button style="background:rgba(255, 255, 255, 0.459);" onclick="cambiarColor('imagen-zapa2','vans/vans.jpeg')"></button>
+          <button style="background:rgba(255, 255, 255, 0.966);" onclick="cambiarColor('imagen-zapa2','vans/vans.jpeg')"></button>
         </div>
       </div>
 
@@ -439,7 +450,7 @@ body.modal-activo{
         <img src="low/lownegra.jpeg" onclick="expandir(this)" id="imagen-zapa3">
         <div class="card-body">
           <h5>Nike Jordan Low</h5>
-          <div class="price">$28.000</div>
+          <div class="price">$65.000</div>
         </div>
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
@@ -467,6 +478,7 @@ body.modal-activo{
   border:1px solid #000;
   cursor:pointer;
 " onclick="cambiarColor('imagen-zapa3','low/lowazulynegro.jpeg')"></button>
+        </div>
 
 
       </div>
