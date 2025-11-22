@@ -149,10 +149,10 @@ body.modal-activo{
 }
 
 .card-product{
-  border:1px solid #eee;
+  border:1px solid #636060;
   border-radius:6px;
   overflow:hidden;
-  background:#fff;
+  background:#5a5a5a;
   transition:0.3s;
 }
 
@@ -181,7 +181,7 @@ body.modal-activo{
 .card-footer{
   padding:10px;
   text-align:center;
-  border-top:1px solid #eee;
+  border-top:1px solid #3a3535;
 }
 
 .btn{
@@ -201,7 +201,7 @@ body.modal-activo{
 
 /* ===== PRODUCTOS DESTACADOS CON BOTÓN ILUMINADO ===== */
 .card-product-special {
-  border:1px solid #eee;
+  border:1px solid #7a7777;
   border-radius:8px;
   overflow:hidden;
   background:#fff;
@@ -220,7 +220,7 @@ body.modal-activo{
   right:0.5rem;
   padding:5px 10px;
   background:#111;
-  color:#fff;
+  color:#f5f0f0;
   font-size:0.8rem;
   border-radius:4px;
   z-index:2;
@@ -266,7 +266,7 @@ body.modal-activo{
 
 .card-product-special .btn-special:hover {
   background:#111;
-  color:#fff;
+  color:#6b6868;
   box-shadow:0 0 10px 3px #00ffff;
 }
 
@@ -398,7 +398,7 @@ body.modal-activo{
       <!-- Zapatilla 1 -->
       <div class="card-product-special">
         <div class="badge">Sale</div>
-        <img src="zapatillas/zapatillas1.jpeg" onclick="expandir(this)" id="imagen-zapa1">
+        <img src="adidasdepor/adidasnegra.jpeg" onclick="expandir(this)" id="imagen-zapa1">
         <div class="card-body">
           <h5>Adidas X</h5>
           <div class="price">$25.000</div>
@@ -407,9 +407,10 @@ body.modal-activo{
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
         </div>
         <div class="color-buttons">
-          <button style="background:red;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas1.jpeg')"></button>
-          <button style="background:blue;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas2.jpeg')"></button>
-          <button style="background:green;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas3.jpeg')"></button>
+          <button style="background:red;" onclick="cambiarColor('imagen-zapa1','adidasdepor/adidasroja.jpeg')"></button>
+          <button style="background:rgb(240, 80, 200);" onclick="cambiarColor('imagen-zapa1','adidasdepor/adidasrosa.jpeg')"></button>
+          <button style="background:black;" onclick="cambiarColor('imagen-zapa1','adidasdepor/adidasnegra.jpeg')"></button>
+          <button style="background:white;" onclick="cambiarColor('imagen-zapa1','adidasdepor/adidasblanca.jpeg')"></button>
         </div>
       </div>
 
@@ -448,10 +449,26 @@ body.modal-activo{
           <button style="background:blue;" onclick="cambiarColor('imagen-zapa3','low/lowazul.jpeg')"></button>
           <button style="background:green;" onclick="cambiarColor('imagen-zapa3','low/lowverde.jpeg')"></button>
           <button style="background:black;" onclick="cambiarColor('imagen-zapa3','low/lownegra.jpeg')"></button>
-          <button style="background:rgb(207, 0, 207);" onclick="cambiarColor('imagen-zapa3','low/lowvioleta.jpeg')"></button>
+          <button style="background:rgb(85, 9, 85);" onclick="cambiarColor('imagen-zapa3','low/lowvioleta.jpeg')"></button>
           <button style="background:skyblue;" onclick="cambiarColor('imagen-zapa3','low/lowceleste.jpeg')"></button>
-          <button style="background: linear-gradient (to right skyblue,red );" onclick="cambiarColor('imagen-zapa3','low/lowceleste.jpeg')"></button>
-        </div>
+          <button style="
+  background: linear-gradient(90deg, red 50%, black 50%);
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:1px solid #000;
+  cursor:pointer;
+" onclick="cambiarColor('imagen-zapa3','low/lowroja.jpeg')"></button>
+<button style="
+  background: linear-gradient(90deg, blue, black 50%);
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:1px solid #000;
+  cursor:pointer;
+" onclick="cambiarColor('imagen-zapa3','low/lowazulynegro.jpeg')"></button>
+
+
       </div>
 
     </div>
