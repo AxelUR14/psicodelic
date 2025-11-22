@@ -275,6 +275,22 @@ body.modal-activo{
   transform:scale(0.95);
 }
 
+/* ===== BOTONES DE COLOR ===== */
+.color-buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.color-buttons button{
+  width:25px;
+  height:25px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+}
+
 /* ===== VISOR ===== */
 #visor-img{
   position:fixed;
@@ -337,12 +353,9 @@ body.modal-activo{
 <body>
 
 <header>
-  <!-- ESPACIO EN BLANCO -->
   <div class="titulo-espacio">
     <h1>PSICODELIC</h1>
   </div>
-
-  <!-- VIDEO -->
   <div class="video-container">
     <video autoplay muted playsinline loop id="video-bg">
       <source src="fondo.mp4" type="video/mp4">
@@ -350,7 +363,6 @@ body.modal-activo{
   </div>
 </header>
 
-<!-- BOTONES -->
 <section class="cards">
   <div class="grid">
 
@@ -375,7 +387,6 @@ body.modal-activo{
   </div>
 </section>
 
-<!-- MODAL -->
 <div id="contenedor-secciones">
   <span id="cerrar" onclick="cerrarModal()">✕</span>
 
@@ -384,9 +395,10 @@ body.modal-activo{
     <h2>Zapatillas</h2>
     <div class="imagenes">
 
+      <!-- Zapatilla 1 -->
       <div class="card-product-special">
         <div class="badge">Sale</div>
-        <img src="zapatillas/zapatillas1.jpeg" onclick="expandir(this)">
+        <img src="zapatillas/zapatillas1.jpeg" onclick="expandir(this)" id="imagen-zapa1">
         <div class="card-body">
           <h5>Adidas X</h5>
           <div class="price">$25.000</div>
@@ -394,11 +406,17 @@ body.modal-activo{
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
         </div>
+        <div class="color-buttons">
+          <button style="background:red;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas1.jpeg')"></button>
+          <button style="background:blue;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas2.jpeg')"></button>
+          <button style="background:green;" onclick="cambiarColor('imagen-zapa1','zapatillas/zapatillas3.jpeg')"></button>
+        </div>
       </div>
 
+      <!-- Zapatilla 2 -->
       <div class="card-product-special">
         <div class="badge">Sale</div>
-        <img src="zapatillas/zapatillas2.jpeg" onclick="expandir(this)">
+        <img src="vans/vans.jpeg" onclick="expandir(this)" id="imagen-zapa2">
         <div class="card-body">
           <h5>Nike Air</h5>
           <div class="price">$30.000</div>
@@ -406,17 +424,29 @@ body.modal-activo{
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
         </div>
+        <div class="color-buttons">
+          <button style="background:pink;" onclick="cambiarColor('imagen-zapa2','vans/vansrosas.jpeg')"></button>
+          <button style="background:black;" onclick="cambiarColor('imagen-zapa2','vans/vansnegras.jpeg')"></button>
+          <button style="background:brown;" onclick="cambiarColor('imagen-zapa2','vans/vansmarron.jpeg')"></button>
+          <button style="background:rgba(255, 255, 255, 0.459);" onclick="cambiarColor('imagen-zapa2','vans/vans.jpeg')"></button>
+        </div>
       </div>
 
+      <!-- Zapatilla 3 -->
       <div class="card-product-special">
         <div class="badge">Sale</div>
-        <img src="zapatillas/zapatillas3.jpeg" onclick="expandir(this)">
+        <img src="low/lownegra.jpeg" onclick="expandir(this)" id="imagen-zapa3">
         <div class="card-body">
-          <h5>Puma Runner</h5>
+          <h5>Nike Jordan Low</h5>
           <div class="price">$28.000</div>
         </div>
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543513241205?text=" target="_blank">Comprar</a>
+        </div>
+        <div class="color-buttons">
+          <button style="background:red;" onclick="cambiarColor('imagen-zapa3','low/lowroja.jpeg')"></button>
+          <button style="background:blue;" onclick="cambiarColor('imagen-zapa3','low/lowazul.jpeg')"></button>
+          <button style="background:green;" onclick="cambiarColor('imagen-zapa3','low/lowverde.jpeg')"></button>
         </div>
       </div>
 
@@ -513,7 +543,6 @@ body.modal-activo{
 
 </div>
 
-<!-- VISOR -->
 <div id="visor-img" onclick="cerrarImagen()">
   <img id="img-grande">
 </div>
@@ -542,6 +571,11 @@ function expandir(img){
 
 function cerrarImagen(){
   document.getElementById("visor-img").style.display = "none";
+}
+
+/* ===== FUNCIONALIDAD BOTONES DE COLORES ===== */
+function cambiarColor(idImg,ruta){
+  document.getElementById(idImg).src = ruta;
 }
 </script>
 
