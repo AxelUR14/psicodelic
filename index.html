@@ -356,6 +356,34 @@ body.modal-activo{
 /* Si el fondo gris viene del producto completo */
 .card-product{
   background: gray !important;
+  .cartel {
+    width: 100%;
+    background: black;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+  
+  .cartel-texto {
+    display: inline-block;
+    color: white;
+    font-size: 14px;
+    padding: 8px 0;
+    animation: moverTexto 12s linear infinite;
+  }
+  
+  @keyframes moverTexto {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  @media (max-width: 768px) {
+    .cartel-texto {
+      animation: moverTexto 20s linear infinite;
+      font-size: 12px;
+    }
+  }
+    
 }
 
 </style>
@@ -364,6 +392,12 @@ body.modal-activo{
 <body>
 
 <header>
+  <div class="cartel">
+    <div class="cartel-texto">
+      🔥 ENVÍOS A TODO EL PAÍS - POR MAYOR Y MENOR 🔥 &nbsp; 🔥 ENVÍOS A TODO EL PAÍS - POR MAYOR Y MENOR 🔥
+    </div>
+  </div>
+  
   <div class="titulo-espacio">
     <h1>PSICODELIC</h1>
   </div>
