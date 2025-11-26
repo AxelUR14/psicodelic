@@ -428,12 +428,18 @@ body.modal-activo{
       <h3>Remeras</h3>
       <p>Estampas DTF</p>
     </div>
+    <div class="card" onclick="abrirSeccion('ojotas')">
+      <img src="ojotas/negrasd.jpeg" class="img-boton">
+      <h3>ojotas</h3>
+      <p>Importadas G5</p>
+    </div>
 
     <div class="card" onclick="abrirSeccion('ofertas')">
       <img src="ofertas/ofertas.jpeg" class="img-boton">
       <h3>Ofertas</h3>
       <p>Combos especiales</p>
     </div>
+    
 
   </div>
 </section>
@@ -687,7 +693,7 @@ body.modal-activo{
             <img src="remeras/basica1.jpeg" onclick="expandir(this)">
             <div class="card-body">
               <h5>Remera DTF</h5>
-              <div class="price">$5.000</div>
+              <div class="price">$30.000</div>
             </div>
             <div class="card-footer">
               <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
@@ -699,7 +705,7 @@ body.modal-activo{
             <img src="remeras/basica2.jpeg" onclick="expandir(this)">
             <div class="card-body">
               <h5>Remera DTF</h5>
-              <div class="price">$5.500</div>
+              <div class="price">$30.000</div>
             </div>
             <div class="card-footer">
               <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
@@ -711,7 +717,7 @@ body.modal-activo{
             <img src="remeras/basica3.jpeg" onclick="expandir(this)">
             <div class="card-body">
               <h5>Remera DTF</h5>
-              <div class="price">$6.000</div>
+              <div class="price">$30.000</div>
             </div>
             <div class="card-footer">
               <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
@@ -720,8 +726,83 @@ body.modal-activo{
     
         </div>
   </div>
+ <!-- OJOTAS -->
+<div id="ojotas" class="section-content">
+  <h2>Ojotas</h2>
+  <div class="imagenes">
 
-  
+    <!-- Ojota 1 -->
+    <div class="card-product-special">
+      <div class="badge">Sale</div>
+      <img src="ojotas/negrasd.jpeg" onclick="expandir(this)" id="imagen-ojota1">
+      <div class="card-body">
+        <h5>Gucci</h5>
+        <div class="price">$3.500</div>
+      </div>
+      <div class="card-footer">
+        <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+      </div>
+      <div class="color-buttons">
+        <!-- 2 doble color -->
+        <button style="background: linear-gradient(90deg, black 50%, rgb(243, 219, 5) 50%);" onclick="cambiarColor('imagen-ojota1','ojotas/negrasd.jpeg')"></button>
+        <button style="background: linear-gradient(90deg, white 50%,  rgb(243, 219, 5)50%);" onclick="cambiarColor('imagen-ojota1','ojotas/blancasd.jpeg')"></button>
+        <!-- 4 de un solo color -->
+        <button style="background:black;" onclick="cambiarColor('imagen-ojota1','ojotas/negras.jpeg')"></button>
+        <button style="background:rgb(73, 175, 95);" onclick="cambiarColor('imagen-ojota1','ojotas/verde.jpeg')"></button>
+        <button style="background:rgb(107, 51, 5);" onclick="cambiarColor('imagen-ojota1','ojotas/marrones.jpeg')"></button>
+        <button style="background:rgb(192, 82, 165);" onclick="cambiarColor('imagen-ojota1','ojotas/rosas.jpeg')"></button>
+      </div>
+    </div>
+
+    <!-- Ojota 2 -->
+    <div class="card-product-special">
+      <div class="badge">Sale</div>
+      <img src="ojotas/ojota2.jpeg" onclick="expandir(this)" id="imagen-ojota2">
+      <div class="card-body">
+        <h5>Ojota Modelo 2</h5>
+        <div class="price">$4.000</div>
+      </div>
+      <div class="card-footer">
+        <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+      </div>
+      <div class="color-buttons">
+        <!-- 2 doble color -->
+        <button style="background: linear-gradient(90deg, black 50%, gray 50%);" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2negra.jpeg')"></button>
+        <button style="background: linear-gradient(90deg, white 50%, red 50%);" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2blanca.jpeg')"></button>
+        <!-- 4 de un solo color -->
+        <button style="background:black;" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2negra2.jpeg')"></button>
+        <button style="background:white;" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2blanca2.jpeg')"></button>
+        <button style="background:red;" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2roja2.jpeg')"></button>
+        <button style="background:green;" onclick="cambiarColor('imagen-ojota2','ojotas/ojota2verde.jpeg')"></button>
+      </div>
+    </div>
+
+    <!-- Ojota 3 -->
+    <div class="card-product-special">
+      <div class="badge">Sale</div>
+      <img src="ojotas/ojota3.jpeg" onclick="expandir(this)" id="imagen-ojota3">
+      <div class="card-body">
+        <h5>Ojota Modelo 3</h5>
+        <div class="price">$4.500</div>
+      </div>
+      <div class="card-footer">
+        <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+      </div>
+      <div class="color-buttons">
+        <!-- 2 doble color -->
+        <button style="background: linear-gradient(90deg, black 50%, rgb(243, 227, 5) 50%);" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3negra.jpeg')"></button>
+        <button style="background: linear-gradient(90deg, white 50%, red 50%);" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3blanca.jpeg')"></button>
+        <!-- 4 de un solo color -->
+        <button style="background:black;" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3negra2.jpeg')"></button>
+        <button style="background:white;" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3blanca2.jpeg')"></button>
+        <button style="background:red;" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3roja2.jpeg')"></button>
+        <button style="background:green;" onclick="cambiarColor('imagen-ojota3','ojotas/ojota3verde.jpeg')"></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
   <!-- OFERTAS -->
   <div id="ofertas" class="section-content">
