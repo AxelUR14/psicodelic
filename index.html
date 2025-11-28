@@ -139,6 +139,14 @@ body.modal-activo{
   font-size:2rem;
   font-weight:300;
 }
+@media (max-width: 600px) {
+  .section-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* opcional */
+  }
+}
+
 
 /* ===== PRODUCTOS ===== */
 .imagenes{
@@ -381,9 +389,9 @@ body.modal-activo{
   0% { transform: translateX(0%); }
   100% { transform: translateX(-100%); }
 }
-
-
-  
+h8{
+  color: red;
+}
     
   
   
@@ -702,7 +710,7 @@ body.modal-activo{
     
           <div class="card-product-special">
             <div class="badge">Sale</div>
-            <img src="remeras/basica2.jpeg" onclick="expandir(this)">
+            <img src="remeras/basica13.jpeg" onclick="expandir(this)">
             <div class="card-body">
               <h5>Remera DTF</h5>
               <div class="price">$30.000</div>
@@ -714,7 +722,84 @@ body.modal-activo{
     
           <div class="card-product-special">
             <div class="badge">Sale</div>
-            <img src="remeras/basica3.jpeg" onclick="expandir(this)">
+            <img src="remeras/basica11.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica2.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica5.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica7.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica10.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica8.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica14.jpeg" onclick="expandir(this)">
+            <div class="card-body">
+              <h5>Remera DTF</h5>
+              <div class="price">$30.000</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
+            </div>
+          </div>
+          <div class="card-product-special">
+            <div class="badge">Sale</div>
+            <img src="remeras/basica9.jpeg" onclick="expandir(this)">
             <div class="card-body">
               <h5>Remera DTF</h5>
               <div class="price">$30.000</div>
@@ -736,7 +821,7 @@ body.modal-activo{
       <div class="badge">Sale</div>
       <img src="ojotas/negras.jpeg" onclick="expandir(this)" id="imagen-ojota1">
       <div class="card-body">
-        <h5>Gucci</h5>
+        <h5>Louis Vuitton</h5>
         <div class="price">$40.000</div>
       </div>
       <div class="card-footer">
@@ -744,12 +829,12 @@ body.modal-activo{
       </div>
       <div class="color-buttons">
         <!-- 2 doble color -->
-        <button style="background: linear-gradient(90deg, black 50%, rgb(243, 219, 5) 50%);" onclick="cambiarColor('imagen-ojota1','ojotas/negrasd.jpeg')"></button>
+        <button style="background: linear-gradient(90deg, black 50%, #FFD700 50%);" onclick="cambiarColor('imagen-ojota1','ojotas/negrasd.jpeg')"></button>
         <button style="background: linear-gradient(90deg, white 50%,  rgb(243, 219, 5)50%);" onclick="cambiarColor('imagen-ojota1','ojotas/blancasd.jpeg')"></button>
         <!-- 4 de un solo color -->
         <button style="background:black;" onclick="cambiarColor('imagen-ojota1','ojotas/negras.jpeg')"></button>
         <button style="background:rgb(73, 175, 95);" onclick="cambiarColor('imagen-ojota1','ojotas/verde.jpeg')"></button>
-        <button style="background:rgb(107, 51, 5);" onclick="cambiarColor('imagen-ojota1','ojotas/marrones.jpeg')"></button>
+        <button style="background:rgb(236, 146, 72);" onclick="cambiarColor('imagen-ojota1','ojotas/marrones.jpeg')"></button>
         <button style="background:rgb(192, 82, 165);" onclick="cambiarColor('imagen-ojota1','ojotas/rosas.jpeg')"></button>
       </div>
     </div>
@@ -829,17 +914,18 @@ body.modal-activo{
 
       <div class="card-product-special">
         <div class="badge">Sale</div>
-        <img src="ofertas/of1.jpg" onclick="expandir(this)">
+        <img src="ofertas/oferta1.jpeg" onclick="expandir(this)">
         <div class="card-body">
-          <h5>Oferta 1</h5>
-          <div class="price">$15.000</div>
+          <h5>Zapatilla mas remera</h5>
+          <h8>Oferta valida para cualquier producto en catalogo</h8>
+          <div class="price">$90.000</div>
         </div>
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
         </div>
       </div>
 
-      <div class="card-product-special">
+      <!--<div class="card-product-special">
         <div class="badge">Sale</div>
         <img src="ofertas/of2.jpg" onclick="expandir(this)">
         <div class="card-body">
@@ -861,7 +947,7 @@ body.modal-activo{
         <div class="card-footer">
           <a class="btn-special" href="https://wa.me/+543415709564?text=" target="_blank">Comprar</a>
         </div>
-      </div>
+      </div>-->
 
     </div>
   </div>
